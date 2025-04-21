@@ -1,93 +1,69 @@
 # Getting Remote Data Lab
 
-## Learning Goals
+## The Scenario 
+It is time to practice building out your own class for retrieving remote data. In this lab, you are tasked with building a generic GetRequester class. This class will be able to take in a URL on initialization and send an HTTP GET request on command. You will also need to build a method for dealing with requests that return JSON.
 
-- Practice sending GET requests using Python.
-- Build a reusable class for sending requests and handling responses.
-
-***
-
-## Key Vocab
-
-- **Request**: an attempt by one machine to contact another over the internet.
-- **Client**: an application or machine that accesses services being provided by
-  a server through the internet.
-- **Web Server**: a combination of software and hardware that uses Hypertext
-  Transfer Protocol (HTTP) and other protocols to respond to requests made over
-  the internet.
-
-***
-
-## Introduction
-
-It is time to practice building out your own class for retrieving remote data.
-In this lab, you are tasked with building a generic `GetRequester` class. This
-class will be able to take in a URL on initialization and send an HTTP GET
-request on command. You will also need to build a method for dealing with
-requests that return JSON.
-
-When complete, you will have a simple, but versatile class for getting
-information from all kinds of sources over the internet.
-
-***
-
-## Instructions
-
-All work should be completed in `lib/GetRequester.py`. Use the previous
-code-along on getting data from APIs as a reference when building out your
-class.
-
-Start by creating a `GetRequester` class. This class should be able to
-initialize with a string URL.
-
-The `GetRequester` class should have a `get_response_body` method that sends a
-GET request to the URL passed in on initialization. This method should return
-the _body_ of the response.
-
-The `GetRequester` class should have a `load_json` method that should use
-`get_response_body` to send a request, then return a Python list or dictionary
-made up of data converted from the response of that request.
-
-The tests in this lab will use your code to send a request for some JSON data,
-located at
-[https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json][].
-Read the test error messages for additional as you work for additional
-information. Don't forget to import the necessary Python modules and classes!
-
-[https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json]: https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json
-
-This is a **test-driven lab**. Run `pipenv install` to create your virtual
-environment and `pipenv shell` to enter the virtual environment. Then run
-`pytest -x` to run your tests. Use these instructions and `pytest`'s error
-messages to complete your work in the `lib/` folder.
-
-Once all of your tests are passing, commit and push your work using `git` to
-submit.
-
-***
-
-## Conclusion
-
-Once you've successfully passed the tests, from this lesson's directory, you
-should be able to open repl, use
-`lib/GetRequester.py`, and send out some requests!
-
-```py
-get_requester = GetRequester('https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json')
-get_requester.load_json()
-#=> [{"name"=>"Daniel", "occupation"=>"LG Fridge Salesman"}, {"name"=>"Joe", "occupation"=>"WiFi Fixer"}, {"name"=>"Avi", "occupation"=>"DJ"}, {"name"=>"Howard", "occupation"=>"Mountain Legend"}]
-```
-
-This class won't work for all cases but is a good starting place to get us off
-the ground. We can now augment our applications with data from the internet!
-Combined with our knowledge of Python, we have all the tools we need to start
-building smarter Python applications populated with real data.
-
-***
-
-## Resources
-
+## Tools and Resources 
+- [GitHub Repo](https://github.com/learn-co-curriculum/flask-getting-remote-data-lab)
 - [GET - Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
 - [HTTP methods - Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 - [requests](https://requests.readthedocs.io/en/latest/)
 - [Python JSON](https://docs.python.org/3/library/json.html)
+
+## Instructions
+
+### Set Up
+
+Before we begin coding, let's complete the initial setup for this lesson: 
+
+* Fork and Clone
+  * For this lesson, you will need the following GitHub Repo:
+  * Go to the provided GitHub repository link.
+  * Fork the repository to your GitHub account.
+  * Clone the forked repository to your local machine.
+* Open and Run File
+  * Open the project in VSCode.
+  * Run pipenv install to install all necessary dependencies.
+  * Run pipenv shell to open instance of python shell
+
+### Task 1: Define the Problem
+
+* Build a class to interact with api
+* Get the data
+* Convert to json data
+
+### Task 2: Determine the Design
+
+* Endpoint: https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json.
+  * ```get_response_body```
+    * Query endpoint
+  * ```load_json```
+    * Convert to json data
+
+#### Task 3: Develop, Test, and Refine the Code
+
+* Create feature branch
+* Build get_response_body to query endpoint
+* Convert endpoint data to json and return the data
+* Push feature branch and open a PR on GitHub
+* Merge to main
+
+#### Task 4: Document and Maintain
+
+Best Practice documentation steps:
+* Add comments to code to explain purpose and logic, clarifying intent / functionality of code to other developers.
+* Add screenshot of completed work included in Markdown in README.
+* Update README text to reflect the functionality of the application following https://makeareadme.com.
+* Delete any stale branches on GitHub
+* Remove unnecessary/commented out code
+* If needed, update git ignore to remove sensitive data
+
+## Submission
+
+Once all tests are passing and working code is pushed to the GitHub main branch, submit your GitHub repo through Canvas using CodeGrade.
+
+## Grading Criteria
+
+The application passes all test suites.
+* Get json data
+* Convert to Json
